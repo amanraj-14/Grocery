@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SuperMart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="navbar">
+        <div class="logo">SuperMart</div>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-right">
+            <input type="text" placeholder="Search products..." class="search-box">
+            <button class="cart-btn" onclick="toggleCart()">
+                🛒 Cart <span id="cart-count">0</span>
+            </button>
+            <div id="cart-dropdown" class="cart-dropdown"></div>
+        </div>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Fresh Grocery Delivered</h1>
+        <p>Best quality products at best price</p>
+        <button class="shop-btn">Shop Now</button>
+    </div>
+</section>
+<!-- Search -->
+<div class="big-search">
+    <input type="text" placeholder="Search for groceries...">
+</div>
+
+<!-- Categories -->
+<div class="categories">
+    <button>🥦 Vegetables</button>
+    <button>🍎 Fruits</button>
+    <button>🥛 Dairy</button>
+    <button>🍚 Grocery</button>
+</div>
+
+<!-- 🔥 SHOP LAYOUT WRAPPER -->
+<div class="shop-layout">
+
+    <!-- LEFT SIDE PRODUCTS -->
+    <div class="products-section">
+        <h2 class="section-title">Products</h2>
+        <div class="products"></div>
+    </div>
+
+    <!-- RIGHT SIDE RECOMMENDED -->
+    <div class="recommend-section">
+        <h3>You May Also Like</h3>
+        <div class="recommendations"></div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

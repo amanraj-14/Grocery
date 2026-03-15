@@ -2,51 +2,57 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let cartItems = [];
 
-   const products = [
-    // 🥛 Dairy
-    { id: 1, name: "Milk", price: 40, image: "Images/milk.jpg" },
-    { id: 2, name: "Butter", price: 55, image: "Images/butter.jpg" },
-    { id: 3, name: "Cheese", price: 110, image: "Images/cheese.jpg" },
-    { id: 4, name: "Paneer", price: 90, image: "Images/paneer.jpg" },
-    { id: 5, name: "Curd", price: 35, image: "Images/curd.jpg" },
+const products = [
 
-    // 🥦 Vegetables
-    { id: 6, name: "Tomato", price: 20, image: "Images/tomato.jpg" },
-    { id: 7, name: "Potato", price: 22, image: "Images/potato.jpg" },
-    { id: 8, name: "Onion", price: 18, image: "Images/onion.jpg" },
-    { id: 9, name: "Carrot", price: 25, image: "Images/carrot.jpg" },
-    { id: 10, name: "Cabbage", price: 30, image: "Images/cabbage.jpg" },
-    { id: 11, name: "Spinach", price: 15, image: "Images/spinach.jpg" },
 
-    // 🍎 Fruits
-    { id: 12, name: "Apple", price: 120, image: "Images/apple.jpg" },
-    { id: 13, name: "Banana", price: 60, image: "Images/banana.jpg" },
-    { id: 14, name: "Orange", price: 80, image: "Images/orange.jpg" },
-    { id: 15, name: "Mango", price: 150, image: "Images/mango.jpg" },
-    { id: 16, name: "Grapes", price: 90, image: "Images/grapes.jpg" },
+// 🥛 Dairy
+{ id: 1, name: "Milk", price: 40, category:"dairy", image: "Images/milk.jpg" },
+{ id: 2, name: "Butter", price: 55, category:"dairy", image: "Images/butter.jpg" },
+{ id: 3, name: "Cheese", price: 110, category:"dairy", image: "Images/cheese.jpg" },
+{ id: 4, name: "Paneer", price: 90, category:"dairy", image: "Images/paneer.jpg" },
+{ id: 5, name: "Curd", price: 35, category:"dairy", image: "Images/curd.jpg" },
 
-    // 🍞 Bakery
-    { id: 17, name: "Bread", price: 30, image: "Images/bread.jpg" },
-    { id: 18, name: "Buns", price: 25, image: "Images/buns.jpg" },
-    { id: 19, name: "Cake", price: 250, image: "Images/cake.jpg" },
-    { id: 20, name: "Cookies", price: 40, image: "Images/cookies.jpg" },
+// 🥦 Vegetables
+{ id: 6, name: "Tomato", price: 20, category:"vegetable", image: "Images/tomato.jpg" },
+{ id: 7, name: "Potato", price: 22, category:"vegetable", image: "Images/potato.jpg" },
+{ id: 8, name: "Onion", price: 18, category:"vegetable", image: "Images/onion.jpg" },
+{ id: 9, name: "Carrot", price: 25, category:"vegetable", image: "Images/carrot.jpg" },
+{ id: 10, name: "Cabbage", price: 30, category:"vegetable", image: "Images/cabbage.jpg" },
+{ id: 11, name: "Spinach", price: 15, category:"vegetable", image: "Images/spinach.jpg" },
 
-    // 🍚 Grocery
-    { id: 21, name: "Rice", price: 70, image: "Images/rice.jpg" },
-    { id: 22, name: "Wheat Flour", price: 65, image: "Images/flour.jpg" },
-    { id: 23, name: "Sugar", price: 35, image: "Images/sugar.jpg" },
-    { id: 24, name: "Salt", price: 20, image: "Images/salt.jpg" },
-    { id: 25, name: "Tea", price: 120, image: "Images/tea.jpg" },
-    { id: 26, name: "Coffee", price: 150, image: "Images/coffee.jpg" },
+// 🍎 Fruits
+{ id: 12, name: "Apple", price: 120, category:"fruit", image: "Images/apple.jpg" },
+{ id: 13, name: "Banana", price: 60, category:"fruit", image: "Images/banana.jpg" },
+{ id: 14, name: "Orange", price: 80, category:"fruit", image: "Images/orange.jpg" },
+{ id: 15, name: "Mango", price: 150, category:"fruit", image: "Images/mango.jpg" },
+{ id: 16, name: "Grapes", price: 90, category:"fruit", image: "Images/grapes.jpg" },
 
-    // 🥤 Beverages
-    { id: 27, name: "Cold Drink", price: 45, image: "Images/colddrink.jpg" },
-    { id: 28, name: "Juice", price: 60, image: "Images/juice.jpg" },
-    { id: 29, name: "Mineral Water", price: 20, image: "Images/water.jpg" },
+// 🍞 Bakery (grocery me rakh diya)
 
-    // 🥚 Others
-    { id: 30, name: "Eggs", price: 75, image: "Images/eggs.jpg" }
+{ id: 17, name: "Bread", price: 30, category:"grocery", image: "Images/bread.jpg" },
+{ id: 18, name: "Buns", price: 25, category:"grocery", image: "Images/buns.jpg" },
+{ id: 19, name: "Cake", price: 250, category:"grocery", image: "Images/cake.jpg" },
+{ id: 20, name: "Cookies", price: 40, category:"grocery", image: "Images/cookies.jpg" },
+
+// 🍚 Grocery
+{ id: 21, name: "Rice", price: 70, category:"grocery", image: "Images/rice.jpg" },
+{ id: 22, name: "Wheat Flour", price: 65, category:"grocery", image: "Images/flour.jpg" },
+{ id: 23, name: "Sugar", price: 35, category:"grocery", image: "Images/sugar.jpg" },
+{ id: 24, name: "Salt", price: 20, category:"grocery", image: "Images/salt.jpg" },
+{ id: 25, name: "Tea", price: 120, category:"grocery", image: "Images/tea.jpg" },
+{ id: 26, name: "Coffee", price: 150, category:"grocery", image: "Images/coffee.jpg" },
+
+// 🥤 Beverages
+{ id: 27, name: "Cold Drink", price: 45, category:"grocery", image: "Images/colddrink.jpg" },
+{ id: 28, name: "Juice", price: 60, category:"grocery", image: "Images/juice.jpg" },
+{ id: 29, name: "Mineral Water", price: 20, category:"grocery", image: "Images/water.jpg" },
+
+// 🥚 Others
+{ id: 30, name: "Eggs", price: 75, category:"grocery", image: "Images/eggs.jpg" }
+
+
 ];
+
 
     const recommendationMap = {
     "Milk": ["Bread", "Butter", "Tea"],
@@ -79,11 +85,35 @@ document.addEventListener("DOMContentLoaded", function () {
     "Juice": ["Apple", "Orange"]
 };
 
-    const productsContainer = document.querySelector(".products");
+    const productsContainer = document.getElementById("product-list");
     const recommendContainer = document.querySelector(".recommendations");
     const searchInput = document.querySelector(".search-box");
     const cartDropdown = document.getElementById("cart-dropdown");
     const cartCount = document.getElementById("cart-count");
+
+    const categoryButtons = document.querySelectorAll(".category-btn");
+
+categoryButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        categoryButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        const category = button.dataset.category;
+
+        if (category === "all") {
+            displayProducts(products);
+            return;
+        }
+
+        const filtered = products.filter(p => p.category === category);
+
+        displayProducts(filtered);
+
+    });
+
+});
 
     /* ================= DISPLAY PRODUCTS ================= */
 
@@ -91,14 +121,20 @@ document.addEventListener("DOMContentLoaded", function () {
         productsContainer.innerHTML = "";
 
         list.forEach(product => {
-            productsContainer.innerHTML += `
-                <div class="card">
-                    <img src="${product.image}">
-                    <h4>${product.name}</h4>
-                    <p>₹ ${product.price}</p>
-                    <button onclick="addToCart(${product.id})">Add to Cart</button>
-                </div>
-            `;
+                productsContainer.innerHTML += `
+<div class="card">
+<img src="${product.image}">
+<h4>${product.name}</h4>
+<p>₹ ${product.price}</p>
+
+<div id="cart-btn-${product.id}">
+<button onclick="addToCart(${product.id})" class="add-btn">
+Add to Cart
+</button>
+</div>
+
+</div>
+`;
         });
     }
 
@@ -113,9 +149,22 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             cartItems.push({ ...item, quantity: 1 });
         }
-
+          
         showRecommendations(item.name);
         renderCart();
+   const box = document.getElementById(`cart-btn-${id}`);
+
+const currentItem = cartItems.find(p => p.id === id);
+
+box.innerHTML = `
+<div class="qty-box">
+<button onclick="decreaseQty(${id})">-</button>
+<span id="qty-${id}">${currentItem.quantity}</span>
+<button onclick="addToCart(${id})">+</button>
+</div>
+`;
+
+
     };
 
     /* ================= RENDER CART ================= */
@@ -167,23 +216,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* ================= CART OPERATIONS ================= */
 
-    window.increaseQty = function (id) {
-        const item = cartItems.find(p => p.id === id);
-        item.quantity += 1;
-        renderCart();
-    };
+   window.increaseQty = function (id) {
+    const item = cartItems.find(p => p.id === id);
+    item.quantity += 1;
 
-    window.decreaseQty = function (id) {
-        const item = cartItems.find(p => p.id === id);
+    document.getElementById(`qty-${id}`).innerText = item.quantity;
 
-        if (item.quantity > 1) {
-            item.quantity -= 1;
-        } else {
-            cartItems = cartItems.filter(p => p.id !== id);
-        }
+    renderCart();
+};
+   window.decreaseQty = function (id) {
 
-        renderCart();
-    };
+const item = cartItems.find(p => p.id === id);
+
+if (item.quantity > 1) {
+
+    item.quantity -= 1;
+    document.getElementById(`qty-${id}`).innerText = item.quantity;
+
+} 
+else {
+
+    cartItems = cartItems.filter(p => p.id !== id);
+
+    const box = document.getElementById(`cart-btn-${id}`);
+
+    box.innerHTML = `
+    <button onclick="addToCart(${id})" class="add-btn">
+    Add to Cart
+    </button>
+    `;
+
+}
+
+renderCart();
+
+};
 
     window.removeItem = function (id) {
         cartItems = cartItems.filter(p => p.id !== id);
@@ -220,13 +287,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* ================= SEARCH ================= */
 
-    searchInput.addEventListener("keyup", () => {
-        const value = searchInput.value.toLowerCase();
-        const filtered = products.filter(p =>
-            p.name.toLowerCase().includes(value)
-        );
-        displayProducts(filtered);
-    });
+const topSearch = document.getElementById("topSearchBar");
+const bigSearch = document.getElementById("bigSearchBar");
+
+function searchProducts(value){
+
+    if(value.trim() === ""){
+        displayProducts(products);
+        return;
+    }
+
+    const filtered = products.filter(product =>
+        product.name.toLowerCase().includes(value.toLowerCase())
+    );
+
+    displayProducts(filtered);
+}
+
+topSearch.addEventListener("keyup", () => {
+    searchProducts(topSearch.value);
+});
+
+bigSearch.addEventListener("keyup", () => {
+    searchProducts(bigSearch.value);
+});
 
     displayProducts(products);
 

@@ -40,6 +40,10 @@ class="search-box">
 
 
 <!-- Hero Section -->
+<div class="deal">
+<h2>🔥 Deal of the Day</h2>
+<h1 id="deal-timer">00 : 00 : 00</h1>
+</div>
 
 <section class="hero">
 
@@ -81,18 +85,15 @@ placeholder="Search for groceries...">
 
 <div class="shop-layout">
 
-
 <!-- LEFT PRODUCTS -->
 
 <div class="products-section">
 
 <h2 class="section-title">Products</h2>
 
-<div class="products" id="product-list">
-
+<div class="products" id="product-list"></div>
 
 </div>
-
 
 <!-- RIGHT SIDE RECOMMEND -->
 
@@ -104,6 +105,22 @@ placeholder="Search for groceries...">
 
 </div>
 
+</div>
+
+<!-- Cart Sidebar -->
+<div id="cartSidebar" class="cart-sidebar">
+
+<div class="cart-header">
+<h3>Your Cart</h3>
+<button onclick="toggleCart()">✖</button>
+</div>
+
+<div id="cart-items"></div>
+
+<div class="cart-footer">
+<h4>Total: ₹ <span id="cart-total">0</span></h4>
+<button onclick="checkout()" class="checkout-btn">Checkout</button>
+</div>
 
 </div>
 

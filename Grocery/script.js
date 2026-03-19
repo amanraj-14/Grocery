@@ -117,12 +117,17 @@ categoryButtons.forEach(button => {
 
     /* ================= DISPLAY PRODUCTS ================= */
 
-    function displayProducts(list) {
-        productsContainer.innerHTML = "";
+function displayProducts(list) {
 
-        list.forEach(product => {
-                productsContainer.innerHTML += `
+productsContainer.innerHTML = "";
+
+list.forEach(product => {
+
+productsContainer.innerHTML += `
 <div class="card">
+
+<div class="badge">20% OFF</div>
+
 <img src="${product.image}">
 <h4>${product.name}</h4>
 <p>₹ ${product.price}</p>
@@ -135,8 +140,10 @@ Add to Cart
 
 </div>
 `;
-        });
-    }
+
+});
+
+}
 
     /* ================= ADD TO CART ================= */
 
@@ -264,27 +271,39 @@ renderCart();
     };
 
     /* ================= RECOMMENDATIONS ================= */
+function showRecommendations(productName){
 
-    function showRecommendations(productName) {
-        recommendContainer.innerHTML = "";
+recommendContainer.innerHTML = "";
 
-        if (!recommendationMap[productName]) return;
+const selected = products.find(p => p.name === productName);
 
-        recommendationMap[productName].forEach(name => {
-            const item = products.find(p => p.name === name);
-            if (!item) return;
+if(!selected) return;
 
-            recommendContainer.innerHTML += `
-                <div class="card">
-                    <img src="${item.image}">
-                    <h4>${item.name}</h4>
-                    <p>₹ ${item.price}</p>
-                    <button onclick="addToCart(${item.id})">Add to Cart</button>
-                </div>
-            `;
-        });
-    }
+const filtered = products.filter(p =>
+p.category === selected.category &&
+p.name !== productName
+).slice(0,3);
 
+filtered.forEach(item => {
+
+recommendContainer.innerHTML += `
+<div class="recommend-card">
+
+<img src="${item.image}">
+
+<div class="recommend-info">
+<h4>${item.name}</h4>
+<p>₹ ${item.price}</p>
+
+<button onclick="addToCart(${item.id})">Add</button>
+</div>
+
+</div>
+`;
+
+});
+
+}
     /* ================= SEARCH ================= */
 
 const topSearch = document.getElementById("topSearchBar");
@@ -322,3 +341,25 @@ bigSearch.addEventListener("keyup", () => {
     };
 
 });
+
+// Set deal end time (24 hours from now)
+let dealEnd = new Date().getTime() + (24 * 60 * 60 * 1000);
+
+let timer = setInterval(function () {
+
+    let now = new Date().getTime();
+    let distance = dealEnd - now;
+
+    let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("deal-timer").innerHTML =
+        hours + " : " + minutes + " : " + seconds;
+
+    if (distance < 0) {
+        clearInterval(timer);
+        document.getElementById("deal-timer").innerHTML = "Deal Ended";
+    }
+
+}, 1000);
